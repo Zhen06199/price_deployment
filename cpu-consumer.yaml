@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cpu-consumer
+spec:
+  replicas: 500
+  selector:
+    matchLabels:
+      app: cpu-consumer
+  template:
+    metadata:
+      labels:
+        app: cpu-consumer
+    spec:
+      containers:
+      - name: busybox-cpu
+        image: busybox
+        command:
+          - sh
+          - -c
+          - |
+            while true; do
+              # 进行一些计算，消耗CPU
+              x=$(( $RANDOM * $RANDOM ))
+            done
+        resources:
+          requests:
+            cpu: "100m"
+          limits:
+            cpu: "500m"
