@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: energy-app
+  labels:
+    app: energy-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: energy-app
+  template:
+    metadata:
+      labels:
+        app: energy-app
+    spec:
+      imagePullSecrets:
+      - name: regcred   # 这里绑定刚才创建的 secret
+      containers:
+      - name: energy-app
+        image: zhen06199/resource-service:latest
+        ports:
+        - containerPort: 8001
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: energy-app-service
+  labels:
+    app: energy-app
+spec:
+  selector:
+    app: energy-app
+  ports:
+  - protocol: TCP
+    port: 8001
+    targetPort: 8001
+  type: ClusterIP
