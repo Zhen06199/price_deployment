@@ -41,16 +41,16 @@ kind: Deployment
 metadata:
   name: ram-price
   labels:
-    app: pricing
+    app: ram-pricing
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pricing
+      app: ram-pricing
   template:
     metadata:
       labels:
-        app: pricing
+        app: ram-pricing
         prometheus: scrape
       annotations:
         prometheus.io/scrape: "true"
@@ -78,10 +78,10 @@ kind: Service
 metadata:
   name: ram-price
   labels:
-    app: pricing
+    app: ram-pricing
 spec:
   selector:
-    app: pricing
+    app: ram-pricing
   ports:
   - protocol: TCP
     port: 8000

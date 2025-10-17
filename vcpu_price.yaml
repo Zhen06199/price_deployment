@@ -41,16 +41,16 @@ kind: Deployment
 metadata:
   name: vcpu-price
   labels:
-    app: pricing
+    app: vcpu-pricing
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pricing
+      app: vcpu-pricing
   template:
     metadata:
       labels:
-        app: pricing
+        app: vcpu-pricing
         prometheus: scrape
       annotations:
         prometheus.io/scrape: "true"
@@ -78,10 +78,10 @@ kind: Service
 metadata:
   name: vcpu-price
   labels:
-    app: pricing
+    app: vcpu-pricing
 spec:
   selector:
-    app: pricing
+    app: vcpu-pricing
   ports:
   - protocol: TCP
     port: 8000

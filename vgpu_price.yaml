@@ -41,16 +41,16 @@ kind: Deployment
 metadata:
   name: vgpu-price
   labels:
-    app: pricing
+    app: vgpu-pricing
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pricing
+      app: vgpu-pricing
   template:
     metadata:
       labels:
-        app: pricing
+        app: vgpu-pricing
         prometheus: scrape
       annotations:
         prometheus.io/scrape: "true"
@@ -78,10 +78,10 @@ kind: Service
 metadata:
   name: vgpu-price
   labels:
-    app: pricing
+    app: vgpu-pricing
 spec:
   selector:
-    app: pricing
+    app: vgpu-pricing
   ports:
   - protocol: TCP
     port: 8000

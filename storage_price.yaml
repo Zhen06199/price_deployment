@@ -41,16 +41,16 @@ kind: Deployment
 metadata:
   name: storage-price
   labels:
-    app: pricing
+    app: storage-pricing
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pricing
+      app: storage-pricing
   template:
     metadata:
       labels:
-        app: pricing
+        app: storage-pricing
         prometheus: scrape
       annotations:
         prometheus.io/scrape: "true"
@@ -78,10 +78,10 @@ kind: Service
 metadata:
   name: storage-price
   labels:
-    app: pricing
+    app: storage-pricing
 spec:
   selector:
-    app: pricing
+    app: storage-pricing
   ports:
   - protocol: TCP
     port: 8000
