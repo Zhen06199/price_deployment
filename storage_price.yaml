@@ -65,6 +65,7 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8000
+          hostPort: 8084
         env:
         - name: NODE_NAME
           valueFrom:
@@ -86,5 +87,4 @@ spec:
   - protocol: TCP
     port: 8000
     targetPort: 8000
-    nodePort: 30083
-  type: NodePort
+  type: ClusterIP
