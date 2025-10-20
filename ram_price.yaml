@@ -65,7 +65,7 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8000
-          hostPort: 8081
+          hostPort: 8085
           protocol: TCP
         env:
         - name: NODE_NAME

@@ -10,7 +10,7 @@ This repository contains Kubernetes manifests to deploy a **Pricing Algorithm** 
 |----------|------------------|------|
 | vCPU     | `vcpu_price.yaml`   | 8083 |
 | vGPU     | `vgpu_price.yaml`   | 8082 |
-| RAM      | `ram_price.yaml`    | 8081 |
+| RAM      | `ram_price.yaml`    | 8085 |
 | Storage  | `storage_price.yaml`| 8084 |
 
 ---
@@ -27,7 +27,7 @@ kubectl apply -f storage_price.yaml
 
 2. **Query the Pricing API**
 
-curl http://<NodeIP>:8081   # RAM
+curl http://<NodeIP>:8085   # RAM
 curl http://<NodeIP>:8082   # vGPU
 curl http://<NodeIP>:8083   # vCPU
 curl http://<NodeIP>:8084   # Storage
