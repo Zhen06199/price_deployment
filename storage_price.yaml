@@ -71,7 +71,16 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: spec.nodeName
+        volumeMounts:
+        - name: json-data
+          mountPath: /go
+      volumes:
+      - name: json-data
+        hostPath:
+          path: /mnt/go        # 宿主机路径
+          type: Directory
 
+          
 ---
 # 5. Service
 apiVersion: v1
