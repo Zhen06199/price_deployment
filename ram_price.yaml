@@ -72,7 +72,14 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: spec.nodeName
-
+        volumeMounts:
+        - name: json-data
+          mountPath: /opt/serfapp
+      volumes:
+      - name: json-data
+        hostPath:
+          path: /opt/serfapp        # 宿主机路径
+          type: Directory
 ---
 # 5. Service
 apiVersion: v1

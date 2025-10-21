@@ -73,11 +73,11 @@ spec:
               fieldPath: spec.nodeName
         volumeMounts:
         - name: json-data
-          mountPath: /go
+          mountPath: /opt/serfapp
       volumes:
       - name: json-data
         hostPath:
-          path: /mnt/go        # 宿主机路径
+          path: /opt/serfapp        # 宿主机路径
           type: Directory
 
           
